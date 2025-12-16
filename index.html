@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Emoji Space Reflex</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #0f172a; /* Slate 900 */
+        overflow: hidden;
+        touch-action: none;
+        user-select: none;
+        -webkit-user-select: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      /* Custom Animations */
+      @keyframes floatUp {
+        0% { transform: translateY(110vh) rotate(0deg) scale(0.5); opacity: 0; }
+        10% { opacity: 1; transform: translateY(90vh) rotate(10deg) scale(1); }
+        100% { transform: translateY(-10vh) rotate(360deg) scale(1); opacity: 1; }
+      }
+      
+      @keyframes floatDown {
+        0% { transform: translateY(-10vh) rotate(0deg) scale(0.5); opacity: 0; }
+        10% { opacity: 1; transform: translateY(10vh) rotate(-10deg) scale(1); }
+        100% { transform: translateY(110vh) rotate(-360deg) scale(1); opacity: 1; }
+      }
+
+      @keyframes popEffect {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.5); opacity: 0.8; }
+        100% { transform: scale(0); opacity: 0; }
+      }
+
+      @keyframes floatText {
+        0% { transform: translateY(0) scale(1); opacity: 1; }
+        100% { transform: translateY(-50px) scale(1.2); opacity: 0; }
+      }
+
+      @keyframes shake {
+        0% { transform: translate(1px, 1px) rotate(0deg); }
+        10% { transform: translate(-1px, -2px) rotate(-1deg); }
+        20% { transform: translate(-3px, 0px) rotate(1deg); }
+        30% { transform: translate(3px, 2px) rotate(0deg); }
+        40% { transform: translate(1px, -1px) rotate(1deg); }
+        50% { transform: translate(-1px, 2px) rotate(-1deg); }
+        60% { transform: translate(-3px, 1px) rotate(0deg); }
+        70% { transform: translate(3px, 1px) rotate(-1deg); }
+        80% { transform: translate(-1px, -1px) rotate(1deg); }
+        90% { transform: translate(1px, 2px) rotate(0deg); }
+        100% { transform: translate(1px, -2px) rotate(-1deg); }
+      }
+
+      .animate-float-up {
+        animation: floatUp linear forwards;
+      }
+      .animate-float-down {
+        animation: floatDown linear forwards;
+      }
+      .animate-pop {
+        animation: popEffect 0.3s ease-out forwards;
+      }
+      .animate-float-text {
+        animation: floatText 0.8s ease-out forwards;
+      }
+      .shake-screen {
+        animation: shake 0.5s;
+      }
+      
+      /* Neon Text Utility */
+      .text-neon {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #e879f9, 0 0 30px #e879f9, 0 0 40px #e879f9;
+      }
+      .text-neon-blue {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #3b82f6, 0 0 30px #3b82f6;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.561.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
